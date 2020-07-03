@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_154714) do
+ActiveRecord::Schema.define(version: 2020_07_02_162149) do
+
+  create_table "competitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "due_on"
+    t.string "name"
+    t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.string "event"
+    t.bigint "competition_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["competition_id"], name: "index_matches_on_competition_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
@@ -23,4 +41,5 @@ ActiveRecord::Schema.define(version: 2020_07_01_154714) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "matches", "competitions"
 end
