@@ -1,0 +1,10 @@
+<li class="list-group-item">
+  <%= match.category %>
+  <%= match.name %>
+  <%= match.event %>
+  <% if current_user && current_user.entry?(match) %>
+    <span class="badge badge-primary">エントリー済み</span>
+  <% elsif current_user %>
+    <%= link_to "エントリーする", entries_path(match_id: match.id), class:"badge badge-primary", method: :post %>
+  <% end %>
+</li>

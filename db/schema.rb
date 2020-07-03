@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_162149) do
+ActiveRecord::Schema.define(version: 2020_07_03_042444) do
 
   create_table "competitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "due_on"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2020_07_02_162149) do
     t.string "place"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "match_id"
+    t.boolean "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_entries_on_match_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,5 +51,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_162149) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "entries", "matches"
+  add_foreign_key "entries", "users"
   add_foreign_key "matches", "competitions"
 end

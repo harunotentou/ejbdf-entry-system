@@ -1,0 +1,8 @@
+<li class="list-group-item">
+  <%= match.competition.due_on %>
+  <%= match.category %>
+  <%= match.name %>
+  <%= match.event %>
+  <%= link_to "エントリー取り消し", entry_path(current_user.entries.find_by(match_id: match.id)), class:"badge badge-primary", method: :delete %>
+  <%= link_to "エントリー確認", competition_match_path(match.competition, match), class:"badge badge-primary" %>
+</li>

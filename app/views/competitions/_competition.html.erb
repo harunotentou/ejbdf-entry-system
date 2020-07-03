@@ -1,15 +1,11 @@
 <div class="card">
   <div class="card-body">
     <h6 class="card-text"><%= competition.due_on %></h6>
-    <h5 class="card-title"><%= link_to competition.name, competition_path(competition.id) %></h5>
+    <h5 class="card-title"><%= competition.name %></h5>
     <h6 class="card-text"><%= competition.place %></h6>
     <ul class="list-group list-group-flush">
     <% competition.matches.each do |match| %>
-    <li class="list-group-item">
-    <%= match.category %>
-    <%= match.name %>
-    <%= match.event %>
-    </li>
+      <%= render 'match', match: match %>
     <% end %>
     </ul>
   </div>
