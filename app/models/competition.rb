@@ -10,5 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Competition < ApplicationRecord
+    validates :due_on, presence: true
+    validates :place, presence: true
+    
     has_many :matches
 end

@@ -1,0 +1,15 @@
+<%= form_with model: [competition, match], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, class: 'form-control', placeholder: '試合の名前' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :カテゴリー %>
+    <%= f.text_field :category, class: 'form-control', placeholder: 'プロorアマ' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :種目 %>
+    <%= f.text_field :event, class: 'form-control', placeholder: 'スタンダードorラテン' %>
+  </div>
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+<% end %>

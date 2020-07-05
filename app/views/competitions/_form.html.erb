@@ -1,0 +1,15 @@
+<%= form_with model: competition, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :大会名 %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :開催日時 %>
+    <%= f.date_field :due_on, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :開催場所 %>
+    <%= f.text_field :place, class: 'form-control' %>
+  </div>
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+<% end %>

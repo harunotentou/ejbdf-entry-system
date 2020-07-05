@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-text"><%= @competition.due_on %></h6>
+    <h5 class="card-title"><%= @competition.name %></h5>
+    <h6 class="card-text"><%= @competition.place %></h6>
+    <ul class="list-group list-group-flush">
+    <% @competition.matches.each do |match| %>
+      <%= render 'match', match: match %>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">試合の追加</h5>
+    <%= render 'matches/form', competition: @competition, match: @match %>
+  </div>
+</div>
