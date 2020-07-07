@@ -12,7 +12,8 @@
 //
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
 //= require rails-ujs
+//= require bootstrap-material-design/dist/js/bootstrap-material-design.js
+//= require bootstrap-sprockets
 //= require activestorage
 //= require_tree .
