@@ -11,7 +11,12 @@ class CompetitionsController < ApplicationController
 
   def create
     @competition = Competition.new(competition_params)
-    @competition.save
+    if @competition.save
+    flash[:success] = '大会を作成しました'
+      redirect_to competitions_path
+    else
+      redirect_back_or_to competitions_path, danger: '大会の作成に失敗しました'
+    end
   end
 
   private

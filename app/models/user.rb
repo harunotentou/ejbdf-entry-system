@@ -17,17 +17,17 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  
+
   validates :name, presence: true
   validates :number, presence: true
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, uniqueness: true
-  
-  has_many :entries
+
+  has_many :entries, dependent: :destroy
   has_many :matches, through: :entries
-  
+
   def entry?(match)
     matches.include?(match)
   end

@@ -6,7 +6,12 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
-    @match.save
+    if @match.save
+      flash[:success] = '試合を作成しました'
+      redirect_to competitions_path
+    else
+      redirect_back_or_to competitions_path, danger: '試合の作成に失敗しました'
+    end
   end
 
   private

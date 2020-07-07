@@ -19,10 +19,10 @@
 #  fk_rails_...  (competition_id => competitions.id)
 #
 class Match < ApplicationRecord
-    validates :name, presence: true
-    validates :category, presence: true
-    validates :event, presence: true
-    
+  validates :name, presence: true
+  validates :category, presence: true
+  validates :event, presence: true
+
   belongs_to :competition
-  has_many :entries
+  has_many :entries, dependent: :destroy
 end
