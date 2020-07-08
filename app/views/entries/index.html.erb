@@ -1,3 +1,18 @@
-<% @matches.each do |match| %>
-  <%= render 'match', match: match %>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">開催日時</th>
+      <th scope="col">大会名</th>
+      <th scope="col">カテゴリー</th>
+      <th scope="col">試合名</th>
+      <th scope="col">種目</th>
+      <th scope="col">エントリー取り消し</th>
+      <th scope="col">エントリー確認</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @matches.each do |match| %>
+    <%= render 'match', match: match %>
+   <% end %>
+  </tbody>
+</table>

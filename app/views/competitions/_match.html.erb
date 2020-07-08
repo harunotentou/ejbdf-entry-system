@@ -1,10 +1,10 @@
-<li class="list-group-item">
-  <%= match.category %>
-  <%= match.name %>
-  <%= match.event %>
+<tr>
+  <td><%= match.category %></td>
+  <td><%= match.name %></td>
+  <td><%= match.event %></td>
   <% if current_user && current_user.entry?(match) %>
-    <span class="badge badge-primary">エントリー済み</span>
+    <td><span class="badge badge-primary">エントリー済み</span></td>
   <% elsif current_user %>
-    <%= link_to "エントリーする", entries_path(match_id: match.id), class:"badge badge-primary", method: :post %>
+    <td><%= link_to "エントリーする", entries_path(match_id: match.id), class:"badge badge-primary", method: :post %></td>
   <% end %>
-</li>
+</tr>

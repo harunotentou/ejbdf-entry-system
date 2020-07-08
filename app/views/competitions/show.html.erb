@@ -3,11 +3,13 @@
     <h6 class="card-text"><%= @competition.due_on %></h6>
     <h5 class="card-title"><%= @competition.name %></h5>
     <h6 class="card-text"><%= @competition.place %></h6>
-    <ul class="list-group list-group-flush">
-    <% @competition.matches.each do |match| %>
-      <%= render 'match', match: match %>
-    <% end %>
-    </ul>
+    <table class="table table-bordered">
+      <tbody>
+        <% @competition.matches.each do |match| %>
+          <%= render 'match', match: match %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 <div class="card">

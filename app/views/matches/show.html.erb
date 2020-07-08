@@ -1,18 +1,24 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">
-      <%= @match.competition.name %>
-      <%= @match.category %>
-      <%= @match.name %>
-      <%= @match.event %>
-    </h5>
-    <ul class="list-group list-group-flush">
+<h4>
+  <%= @match.competition.name %>
+  <%= @match.category %>
+  <%= @match.name %>
+  <%= @match.event %>
+</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">選手番号</th>
+      <th scope="col">名前</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @entries.each do |entry| %>
-      <li class="list-group-item">
-        <%= entry.user.number %>
-        <%= entry.user.name %>
-      </li>
+      <tr>
+        <th scope="row"><%= entry.user.id %></th>
+        <td><%= entry.user.number %></td>
+        <td><%= entry.user.name %></td>
+      </tr>
     <% end %>
-    </ul>
-  </div>
-</div>
+  </tbody>
+</table>
